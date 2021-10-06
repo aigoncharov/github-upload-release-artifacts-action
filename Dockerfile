@@ -1,4 +1,4 @@
-FROM alpine:3.9 as base
+FROM alpine:3.14 as base
 
 RUN apk add --no-cache jq curl
 
