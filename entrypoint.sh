@@ -38,7 +38,7 @@ fi
 for path in $@; do
   if [[ -d $path || -f $path ]]; then
     echo "Publishing $path to $RELEASE_ID ..."
-    ghr -u "${GITHUB_REPOSITORY%/*}" -r "${GITHUB_REPOSITORY#*/}" "$RELEASE_ID" "${path}"
+    retry --max-attempts 3 ghr -u "${GITHUB_REPOSITORY%/*}" -r "${GITHUB_REPOSITORY#*/}" "$RELEASE_ID" "${path}"
   else
     echo "Invalid path passed: ${path}"
     exit 1

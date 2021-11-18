@@ -10,6 +10,8 @@ RUN curl -s https://api.github.com/repos/tcnksm/ghr/releases/latest | \
     tar xzf ghr.tgz && \
     mv ghr_v*_linux_amd64/ghr /usr/local/bin && \
     rm -rf ghr*
+RUN curl -s https://github.com/moul/retry/releases/download/v0.5.0/retry_Linux_x86_64 -o /usr/local/bin/retry && \
+    chmod +x /usr/local/bin/retry
 
 COPY entrypoint.sh /entrypoint.sh
 
