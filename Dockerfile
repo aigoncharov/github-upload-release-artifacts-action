@@ -8,10 +8,11 @@ RUN curl -s https://api.github.com/repos/tcnksm/ghr/releases/latest | \
     xargs curl -o ghr.tgz -sSL && \
     mkdir -p ghr && \
     tar xzf ghr.tgz && \
-    mv ghr_v*_linux_amd64/ghr /usr/local/bin && \
-    rm -rf ghr*
+    mv ghr_v*_linux_amd64/ghr /usr/local/bin
 RUN curl -sL https://github.com/moul/retry/releases/download/v0.5.0/retry_Linux_x86_64 -o /usr/local/bin/retry && \
     chmod +x /usr/local/bin/retry
+
+RUN ls -la
 
 RUN /usr/local/bin/retry
 RUN /usr/local/bin/ghr
