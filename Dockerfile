@@ -13,6 +13,7 @@ RUN curl -s https://api.github.com/repos/tcnksm/ghr/releases/latest | \
 RUN curl -sL https://github.com/moul/retry/releases/download/v0.5.0/retry_Linux_x86_64 -o /usr/local/bin/retry && \
     chmod +x /usr/local/bin/retry
 
+RUN /usr/local/bin/retry
 RUN /usr/local/bin/ghr
 
 COPY entrypoint.sh /entrypoint.sh
