@@ -13,6 +13,8 @@ RUN curl -sL https://github.com/moul/retry/releases/download/v0.5.0/retry_Linux_
     chmod +x /usr/local/bin/retry
 
 RUN ls -la
+RUN ls ghr_v*_linux_amd64
+RUN ls /usr/local/bin
 
 RUN /usr/local/bin/retry
 RUN /usr/local/bin/ghr
