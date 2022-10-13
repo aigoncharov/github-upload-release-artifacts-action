@@ -16,8 +16,6 @@ RUN ls -la
 RUN ls ghr_v*_linux_amd64
 RUN ls /usr/local/bin
 
-RUN ldd /usr/local/bin/retry
-
 RUN /usr/local/bin/retry
 RUN /usr/local/bin/ghr
 
