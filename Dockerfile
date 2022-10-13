@@ -1,6 +1,6 @@
 FROM alpine:3.14 as base
 
-RUN apk add --no-cache jq curl
+RUN apk add --no-cache jq curl gcompat
 
 SHELL ["/bin/ash", "-o", "pipefail", "-c"]
 RUN curl -s https://api.github.com/repos/tcnksm/ghr/releases/latest | \
@@ -12,6 +12,8 @@ RUN curl -s https://api.github.com/repos/tcnksm/ghr/releases/latest | \
     rm -rf ghr*
 RUN curl -sL https://github.com/moul/retry/releases/download/v0.5.0/retry_Linux_x86_64 -o /usr/local/bin/retry && \
     chmod +x /usr/local/bin/retry
+
+RUN ghr
 
 COPY entrypoint.sh /entrypoint.sh
 
